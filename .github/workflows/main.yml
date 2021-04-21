@@ -30,5 +30,8 @@ jobs:
       #     platforms: linux/amd64
       # - name: Image digest
       #   run: echo ${{ steps.docker_build.outputs.digest }}
-      - name: Checkout submodules
-        uses: vendor/bitnami@master
+      # - name: Checkout submodules
+      #   uses: vendor/bitnami@master
+      - uses: Mushus/checkout-submodule@v1
+        with:
+          submodulePath: ./vendor/bitnami
