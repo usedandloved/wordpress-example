@@ -1,0 +1,23 @@
+wordpress:
+  enabled: true
+  ingress:
+    service:
+      type: ClusterIP
+    # enabled: true
+    # path: '/'
+    # pathType: Prefix
+    # hostname: wordpress.ual-dev.com
+    # annotations:
+    #   kubernetes.io/ingress.class: nginx
+    #   cert-manager.io/cluster-issuer: letsencrypt-wordpress-prod
+    # hosts:
+    #   - wordpress.ual-dev.com
+    # tls: true
+  image:
+    registry: ghcr.io
+    repository: usedandloved/ual-wordpress
+    tag: latest
+    debug: true
+    # https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
+    pullSecrets:
+      - ghcr-config

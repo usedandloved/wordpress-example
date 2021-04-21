@@ -1,3 +1,0 @@
-[submodule "vendor/bitnami"]
-	path = vendor/bitnami
-	url = https://github.com/bitnami/charts

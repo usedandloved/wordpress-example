@@ -1,0 +1,12 @@
+annotations:
+  category: CMS
+apiVersion: v2
+appVersion: 0.0.2
+dependencies:
+  - condition: wordpress.enabled
+    name: wordpress
+    repository: https://charts.bitnami.com/bitnami
+    version: 10.0.6
+engine: gotpl
+name: wordpress-example
+version: 0.0.2
