@@ -31,6 +31,6 @@ jobs:
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
       - name: Checkout submodules
-        uses: textbook/git-checkout-submodule-action@master
+        uses: github.com/bitnami/charts@master
         with:
           remote: true
