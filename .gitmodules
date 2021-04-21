@@ -1,4 +1,0 @@
-[submodule "bitnami/charts"]
-	path = bitnami/charts
-	url = git@github.com:bitnami/charts.git
-	branch = master
