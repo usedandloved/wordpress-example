@@ -49,3 +49,21 @@ jobs:
             "acf_pro_key=${{ secrets.ACF_PRO_KEY }}"
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
+      - name: Edit files
+        # You can make whatever type of change to the repo...
+        run: echo "123" > file.txt
+      # - name: Update repo
+      #   uses: EndBug/add-and-commit@v7
+      #   with:
+      #     message: 'Add the very useful text file'
+      #     add: '*.txt --force'
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Apply php-cs-fixer changes
+      - name: 'Run if changes have been detected'
+        if: steps.auto-commit-action.outputs.changes_detected == 'true'
+        run: echo "Changes!"
+
+      - name: 'Run if no changes have been detected'
+        if: steps.auto-commit-action.outputs.changes_detected == 'false'
+        run: echo "No Changes!"
