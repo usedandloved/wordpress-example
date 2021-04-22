@@ -50,16 +50,10 @@ jobs:
       # - name: Image digest
       #   run: echo ${{ steps.docker_build.outputs.digest }}
       - uses: actions/checkout@v2
+      - name: Echo version
+        run: echo  ${{ steps.meta.outputs.version }}
       - name: Edit files
-        # You can make whatever type of change to the repo...
-        run: echo  ${{ steps.meta.outputs.version }} 
-        # run: "sed -i 's/^version: ./version: ${{ steps.meta.outputs.version }}/g' charts/wordpress-example/Chart.yaml"
         run: "sed -i 's/^version:.* # Chart version$/version: {{ steps.meta.outputs.version }} # Chart version/g' charts/wordpress-example/Chart.yaml"
-      # - name: Update repo
-      #   uses: EndBug/add-and-commit@v7
-      #   with:
-      #     message: 'Add the very useful text file'
-      #     add: '*.txt --force'
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Apply php-cs-fixer changes
