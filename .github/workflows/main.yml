@@ -1,6 +1,8 @@
 name: Publish Docker image
 on:
   push:
+    branches:
+      - main
     # Sequence of patterns matched against refs/tags
     tags:
       - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
@@ -50,6 +52,8 @@ jobs:
       # - name: Image digest
       #   run: echo ${{ steps.docker_build.outputs.digest }}
       - uses: actions/checkout@v2
+        with:
+          ref: main
       - name: Echo version
         run: echo  ${{ steps.meta.outputs.version }}
       - name: Edit files
