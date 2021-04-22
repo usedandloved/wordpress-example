@@ -10,5 +10,5 @@ dependencies:
 engine: gotpl
 name: wordpress-example
 # The next line is updated to the release tag version
-version: {{ steps.meta.outputs.version }} # Chart version
+version: main # Chart version
 
