@@ -49,6 +49,7 @@ jobs:
             "acf_pro_key=${{ secrets.ACF_PRO_KEY }}"
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
+      - uses: actions/checkout@v2
       - name: Edit files
         # You can make whatever type of change to the repo...
         run: echo "123" > file.txt
