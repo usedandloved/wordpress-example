@@ -52,7 +52,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Edit files
         # You can make whatever type of change to the repo...
-        run: echo "123" > file.txt
+        run: "sed -i s/version: 0.0.3/version: 0.0.4/g' charts/wordpress-example/Chart.yaml"
       # - name: Update repo
       #   uses: EndBug/add-and-commit@v7
       #   with:
